@@ -2,7 +2,7 @@ export class APIClient {
     constructor() {
         
     }
-    apiUrl = 'http://localhost:5000/api/messages';
+    apiUrl = 'http://localhost:3001/api/messages';
 
     async sendMessage(message) {
       try {
