@@ -4,7 +4,7 @@ import { createChatBotMessage } from "react-chatbot-kit";
 
 
 const config = {
-  initialMessages: [createChatBotMessage(`Guten Tag, wie kann ich Dir behilflich sein?`)],
+  initialMessages: [createChatBotMessage(`Hi, how can I help you?`)],
   botName: 'Webchat HHN'
 }
 
