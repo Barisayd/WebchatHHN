@@ -10,20 +10,7 @@ import config from './Chatbot/config';
 import MessageParser from './Chatbot/MessageParser';
 
 import { Fab } from '@mui/material';
-
-
-import LiveHelp from '@mui/icons-material/LiveHelp';
-import SmartToyIcon from '@mui/icons-material/SmartToy';
-
 import {ReactComponent as BotIcon} from './Icons/BotIcon.svg'
-import Icon from "@material-ui/core/Icon";
-import { fontSize } from '@mui/system';
-import SvgIcon from "@material-ui/core/SvgIcon";
-
-
-//<svgIcon style={{fontSize: "250%"}} />
-
-//<Fab  color='warning' aria-label = "menu icon" onClick={() => toggleBot((prev) => !prev)}>
 
 function App() {
   const [showBot, toggleBot] = useState(false);
