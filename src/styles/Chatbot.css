@@ -19,3 +19,7 @@
   border-width: 1px !important;
 
 }
+
+.react-chatbot-kit-chat-bot-message {
+  left: 10px !important
+}
