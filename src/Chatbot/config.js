@@ -4,7 +4,7 @@ import { createChatBotMessage } from "react-chatbot-kit";
 import {ReactComponent as BotAvatar} from '../Icons/BotAvatar.svg'
 
 const config = {
-  initialMessages: [createChatBotMessage(`Guten Tag, wie kann ich Dir behilflich sein?`)],
+<<<<<<< src/Chatbot/config.js
   botName: 'Webchat HHN',
   customComponents: {
    // Replaces the default bot avatar
@@ -12,6 +12,10 @@ const config = {
 
  },
   
+=======
+  initialMessages: [createChatBotMessage(`Hi, how can I help you?`)],
+  botName: 'Webchat HHN'
+>>>>>>> src/Chatbot/config.js
 }
 
 export default config

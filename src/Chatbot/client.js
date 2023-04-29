@@ -1,32 +1,41 @@
 export class APIClient {
-    constructor() {
-        
-    }
-    apiUrl = 'http://localhost:5000/api/messages';
+  constructor() {
+    this.apiUrl = 'https://api.openai.com/v1/chat/completions';
+    this.apiKey = process.env.REACT_APP_OPENAI_API_KEY;
+  }
 
-    async sendMessage(message) {
-      try {
-        // Use the fetch API to send a GET request to the API URL with the Content-Type header set to application/json
-        const response = await fetch(this.apiUrl, {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-        });
-  
-        // If the response status is not ok, throw an error
-        if (!response.ok) {
-          throw new Error(`Error: ${response.status} - ${response.statusText}`);
-        }
-  
-        // Parse the response JSON data and return the message property
-        const data = await response.json();
-        return data.message;
-      } catch (error) {
-        console.error(error);
-        return 'Sorry, something went wrong.';
+  async sendMessage(message) {
+    console.log('API-Key:' + this.apiKey);
+
+    try {
+      const apiBody = {
+        "model": "gpt-3.5-turbo",
+        "messages": [{"role": "user", "content": "Can you act like you are the Chatbot of the University" +
+        "of Heilbronn aka HHN and answer the following prompt and format the message with the respect to only use 100 tokens with the API call: " + message}],
+        "max_tokens": 100,
+        "temperature": 0,
       }
+
+      console.log(JSON.stringify(apiBody))
+
+      const response = await fetch(this.apiUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + this.apiKey,
+        },
+        body: JSON.stringify(apiBody),
+      });
+
+      if (!response.ok) {
+        throw new Error(`Error: ${response.status} - ${response.statusText}`);
+      }
+
+      const data = await response.json();
+      return data.choices[0].message.content;
+    } catch (error) {
+      console.error(error);
+      return 'Sorry, something went wrong.';
     }
   }
-  
-  
+}
