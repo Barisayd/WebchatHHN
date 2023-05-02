@@ -10,45 +10,42 @@ import config from './Chatbot/config';
 import MessageParser from './Chatbot/MessageParser';
 
 import { Fab } from '@mui/material';
-
-import LiveHelp from '@mui/icons-material/LiveHelp';
+import {ReactComponent as BotIcon} from './Icons/BotIcon.svg'
 
 function App() {
   const [showBot, toggleBot] = useState(false);
 
-  return (
+  // Prevent empty user input
+  const validator = (input) => {
+    if (input !== "" && input !== " ") return true;
+    return false
+}
 
+// Toggle Bot with custom FloatingActionButton
+  return (
     <div className="App" style={{
       position: 'absolute',
-  
   }}>
-
     <div style={{
       position: 'fixed',
       right: '6%',
       bottom: '5%'
   }}>
     {showBot && (
-      <Chatbot config={config} messageParser={MessageParser} actionProvider={ActionProvider}/>
-    
-      )
-      }
+      <Chatbot config={config} messageParser={MessageParser} actionProvider={ActionProvider} validator={validator}/>
+      )}
     </div>
       <div style={{
            width: 'fit-content',
            right: '1%',
            position: 'fixed',
            bottom: '1%'
-
       }}>
-      <Fab  color='warning' aria-label = "menu icon" onClick={() => toggleBot((prev) => !prev)}>
-      <LiveHelp />
+      <Fab size='large' onClick={() => toggleBot((prev) => !prev)}>
+    <BotIcon/>
       </Fab>
-
       </div>
-
     </div>
-
   );
 }
 
