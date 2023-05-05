@@ -1,11 +1,13 @@
 import React from 'react';
+import './ActionProvider.js';
 
 const MessageParser = ({ children, actions }) => {
   const parse = (message) => {
+    
     if (!message) {
       console.log("empty message")
     } else {
-      actions.handleMessage();
+      actions.handleMessage(message);
     }
   };
 
