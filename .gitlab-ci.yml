@@ -9,7 +9,7 @@ cache:
     - node_modules/
 
 before_script:
-  - npm ci --force
+  - npm ci --legacy-peer-deps
 
 lint:
   stage: lint
