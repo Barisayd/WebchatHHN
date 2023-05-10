@@ -30,5 +30,5 @@ test('prevents empty user input', () => {
   const userInput = screen.getByPlaceholderText('Write your message here');
   fireEvent.change(userInput, { target: { value: '   ' }});
   fireEvent.submit(userInput);
-  expect(validator).toBeTruthy;
+  expect(validator).toBeTruthy();
 });
