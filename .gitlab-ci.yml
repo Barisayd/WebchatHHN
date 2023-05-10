@@ -9,7 +9,7 @@ cache:
     - node_modules/
 
 before_script:
-  - npm ci
+  - npm ci --force
 
 lint:
   stage: lint
