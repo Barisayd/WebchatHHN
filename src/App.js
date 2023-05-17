@@ -16,8 +16,9 @@ function App() {
   const [showBot, toggleBot] = useState(false);
 
   // Prevent empty user input
+  const regex = /^\s*$/;
   const validator = (input) => {
-    if (input !== "" && input !== " ") return true;
+    if (input && !regex.test(input)) return true;
     return false
 }
 
