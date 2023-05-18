@@ -19,7 +19,8 @@
 }
 
 .react-chatbot-kit-chat-bot-message {
-  left: 10px !important
+  left: 10px !important;
+  word-wrap: break-word;
 }
 
 .react-chatbot-kit-user-chat-message {
