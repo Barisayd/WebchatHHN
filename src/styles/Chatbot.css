@@ -24,4 +24,5 @@
 
 .react-chatbot-kit-user-chat-message {
   max-width: 73%;
+  word-wrap: break-word;
 }
