@@ -1,41 +1,28 @@
 export class APIClient {
   constructor() {
-    this.apiUrl = 'https://api.openai.com/v1/chat/completions';
-    this.apiKey = process.env.REACT_APP_OPENAI_API_KEY;
+    this.apiUrl = 'http://localhost:5000/api/messages'; // URL of server
   }
   
   async sendMessage(message) {
-    console.log('API-Key:' + this.apiKey);
 
     try {
-      const apiBody = {
-        "model": "gpt-3.5-turbo",
-        "messages": [{"role": "user", "content": "Can you act like you are the Chatbot of the University" +
-        "of Heilbronn aka HHN and answer the following prompt and format the message with the respect to only use 100 tokens with the API call: " + message}],
-        "max_tokens": 100,
-        "temperature": 0,
-      }
-
-      console.log(JSON.stringify(apiBody))
-
       const response = await fetch(this.apiUrl, {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
-          'Authorization': 'Bearer ' + this.apiKey,
+          'Content-Type': 'application/json'
         },
-        body: JSON.stringify(apiBody),
+        body: JSON.stringify({ "message": message }) // Send message in the request body
       });
 
       if (!response.ok) {
         throw new Error(`Error: ${response.status} - ${response.statusText}`);
       }
 
-      const data = await response.json();
-      return data.choices[0].message.content;
+      const responseData = await response.json(); // Parse the response JSON
+      return responseData.message; // Return the response data
     } catch (error) {
-      console.error(error);
-      return 'Sorry, something went wrong.';
+      console.error('Error while sending request:', error);
+      return 'Sorry, something went wrong.'; // Return an error message
     }
   }
 }

@@ -1,6 +1,5 @@
 .react-chatbot-kit-chat-bot-message {
   background-color: #073088 !important;
-
 }
 
 .react-chatbot-kit-chat-bot-message-arrow {
@@ -9,7 +8,6 @@
 
 .react-chatbot-kit-chat-btn-send {
   background-color: #073088 !important;
-
 }
 
 .react-chatbot-kit-chat-container {
@@ -21,5 +19,11 @@
 }
 
 .react-chatbot-kit-chat-bot-message {
-  left: 10px !important
+  left: 10px !important;
+  word-wrap: break-word;
+}
+
+.react-chatbot-kit-user-chat-message {
+  max-width: 73%;
+  word-wrap: break-word;
 }
