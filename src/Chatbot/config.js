@@ -9,7 +9,9 @@ const config = {
   customComponents: {
    // Replaces the default bot avatar
    botAvatar: (props) => <BotAvatar height={50} width={50} left={50} {...props} />,
+   
  },
+
   
 }
 
