@@ -3,7 +3,7 @@ export class APIClient {
     this.apiUrl = 'http://localhost:5000/api/messages'; // URL of server
   }
   
-  async sendMessage(message) {
+  async sendMessage(userMessage) {
 
     try {
       const response = await fetch(this.apiUrl, {
@@ -11,7 +11,7 @@ export class APIClient {
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ "message": message }) // Send message in the request body
+        body: JSON.stringify({ "userMessage": userMessage }) // Send message in the request body
       });
 
       if (!response.ok) {
@@ -19,7 +19,8 @@ export class APIClient {
       }
 
       const responseData = await response.json(); // Parse the response JSON
-      return responseData.message; // Return the response data
+      console.log(responseData);
+      return responseData.chatbotMessage; // Return the response data
     } catch (error) {
       console.error('Error while sending request:', error);
       return 'Sorry, something went wrong.'; // Return an error message

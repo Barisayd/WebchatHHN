@@ -3,12 +3,14 @@ import './ActionProvider.js';
 
 const MessageParser = ({ children, actions }) => {
   const parse = (message) => {
-    
-    if (!message) {
-      console.log("empty message")
+  
+
+    if (message.includes("studies")) {
+      actions.handleStudies();
     } else {
       actions.handleMessage(message);
     }
+
   };
 
   return (
