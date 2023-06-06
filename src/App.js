@@ -11,6 +11,7 @@ import MessageParser from './Chatbot/MessageParser';
 
 import { Fab } from '@mui/material';
 import {ReactComponent as BotIcon} from './Icons/BotIcon.svg'
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 
 function App() {
   const [showBot, toggleBot] = useState(false);
@@ -20,6 +21,7 @@ function App() {
     if (input !== "" && input !== " ") return true;
     return false
 }
+
 
 // Toggle Bot with custom FloatingActionButton
   return (
@@ -37,12 +39,13 @@ function App() {
     </div>
       <div style={{
            width: 'fit-content',
-           right: '1%',
+           right: '-2%',
            position: 'fixed',
            bottom: '1%'
       }}>
-      <Fab size='large' onClick={() => toggleBot((prev) => !prev)}>
-    <BotIcon/>
+      <Fab size='large' onClick={() => toggleBot((prev) => !prev)} style={{ backgroundColor: "#073088" }}>
+      <ArrowBackIosIcon style={{ position: "relative", left: "-15%", color: "white" }}/>
+      
       </Fab>
       </div>
     </div>

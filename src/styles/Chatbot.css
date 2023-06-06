@@ -1,5 +1,6 @@
 .react-chatbot-kit-chat-bot-message {
   background-color: #073088 !important;
+  word-wrap:break-word !important;
 
 }
 
@@ -23,3 +24,12 @@
 .react-chatbot-kit-chat-bot-message {
   left: 10px !important
 }
+
+.react-chatbot-kit-user-chat-message {
+  word-wrap:break-word !important;
+  
+
+
+}
+
+

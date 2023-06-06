@@ -1,7 +1,13 @@
 export class APIClient {
   constructor() {
-    this.apiUrl = 'https://api.openai.com/v1/chat/completions';
+
+    this.apiUrl = localStorage.getItem("serviceURL");
+
+
     this.apiKey = process.env.REACT_APP_OPENAI_API_KEY;
+    console.log("Service URL:", this.serviceURL)
+    
+    
   }
 
   async sendMessage(message) {
