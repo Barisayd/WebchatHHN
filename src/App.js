@@ -15,12 +15,14 @@ import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 
 function App() {
   const [showBot, toggleBot] = useState(false);
-
+/*
   // Prevent empty user input
+  const regex = /^\s*$/;
   const validator = (input) => {
-    if (input !== "" && input !== " ") return true;
+    if (input && !regex.test(input)) return true;
     return false
 }
+*/
 
 
 // Toggle Bot with custom FloatingActionButton
@@ -34,7 +36,7 @@ function App() {
       bottom: '5%'
   }}>
     {showBot && (
-      <Chatbot config={config} messageParser={MessageParser} actionProvider={ActionProvider} validator={validator}/>
+      <Chatbot config={config} messageParser={MessageParser} actionProvider={ActionProvider} /> //validator={validator}
       )}
     </div>
       <div style={{
