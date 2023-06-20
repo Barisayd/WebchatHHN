@@ -9,7 +9,6 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
 
     // Call the sendMessage method of the APIClient instance and handle the response
     apiCall.sendMessage(message).then(response => {
-      console.log(response);
       
       // Create a new ChatBot message using the response from the API call
       const botMessage = createChatBotMessage(response);

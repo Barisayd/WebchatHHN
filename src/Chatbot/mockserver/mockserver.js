@@ -55,7 +55,7 @@ app.post('/api/messages', async (req, res) => {
     const botResponse = data.choices[0].message.content;
 
     // Prepare the response JSON object
-    const responseBody = { message: botResponse };
+    const responseBody = { botMessage: botResponse };
 
     // Send the response JSON object as the HTTP response
     res.json(responseBody);

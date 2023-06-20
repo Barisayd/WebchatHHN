@@ -1,6 +1,7 @@
 export class APIClient {
   constructor() {
-    this.apiUrl = 'http://localhost:5000/api/messages'; // URL of server
+    this.apiUrl = 'http://localhost:8000/mockAPI'; // URL of server
+    // this.apiUrl = 'http://localhost:5000/api/messages'; // URL of server
   }
   
   async sendMessage(message) {
@@ -11,7 +12,7 @@ export class APIClient {
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ "message": message }) // Send message in the request body
+        body: JSON.stringify({ "userMessage": message }) // Send message in the request body
       });
 
       if (!response.ok) {
@@ -19,10 +20,14 @@ export class APIClient {
       }
 
       const responseData = await response.json(); // Parse the response JSON
-      return responseData.message; // Return the response data
+      if (!responseData.botMessage) {
+        return 'Sorry, something went wrong';
+      }
+      return responseData.botMessage; // Return the response data
+
     } catch (error) {
       console.error('Error while sending request:', error);
-      return 'Sorry, something went wrong.'; // Return an error message
+      return 'Sorry, something went wrong'; // Return an error message
     }
   }
 }
