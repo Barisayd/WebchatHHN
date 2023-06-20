@@ -1,6 +1,6 @@
 export class APIClient {
   constructor() {
-    this.apiUrl = localStorage.getItem("serviceURL"); // URL of server
+    this.apiUrl = 'http://localhost:8000/mockAPI'; // URL of server
   }
   
   async sendMessage(message) {
