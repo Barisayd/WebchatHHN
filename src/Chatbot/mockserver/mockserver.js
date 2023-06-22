@@ -17,13 +17,13 @@ app.use(bodyParser.json());
 
 // enable for requests from http://localhost:3000
 app.use(cors({
-  origin: 'http://localhost:3000'
+  origin: '*'
 }));
 
 // Route to handle POST requests to /api/messages
 app.post('/api/messages', async (req, res) => {
   // Get the message from the request body
-  const message = req.body.message;
+  const message = req.body.userMessage;
 
   try {
     const apiBody = {

@@ -1,6 +1,7 @@
 export class APIClient {
   constructor() {
-    this.apiUrl = localStorage.getItem("serviceURL"); // URL of server
+    //this.apiUrl = localStorage.getItem("serviceURL"); // URL of server
+    this.apiUrl = "http://localhost:5000/api/messages"
   }
   
   async sendMessage(message) {

@@ -1,0 +1,15 @@
+/*Customize colors initial widgets*/
+.options-container {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.option-button {
+  padding: 0.5rem;
+  border-radius: 25px;
+  background-color: #f1f1f1;
+  border: 1px solid transparent;
+  margin: 3px;
+  box-shadow: 2px 2px 4px rgba(150, 149, 149, 0.4);
+}
