@@ -32,8 +32,7 @@ app.post('/api/messages', async (req, res) => {
       "messages": [
         {
           "role": "user",
-          //"content": "Act like you are the Chatbot of the University of Heilbronn aka HHN and answer the following prompt and format the message with the respect to only use 100 tokens with the API call: " + message
-          "content": prePrompt + " " + message
+          "content": prePrompt + ": " + message
         }
       ],
       "max_tokens": 100,

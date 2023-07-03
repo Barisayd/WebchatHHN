@@ -13,16 +13,16 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# class for User Messages
-class UserMessage(BaseModel):
+# class for Request Data
+class RequestData(BaseModel):
     userMessage: str
-
-# class for the prompt that should be put before the user message
-class PrePrompt(BaseModel):
     prePrompt: str
 
 @app.post("/mockAPI")
-async def mock_api(user_message: UserMessage, pre_prompt: PrePrompt):
+async def mock_api(request_data: RequestData):
+    user_message = request_data.userMessage
+    pre_prompt = request_data.prePrompt
+
     # Process the message and generate the appropriate response
     # User input is not processed yet but can be processes later in here
     chatbot_message = "Response from the chatbot API"
