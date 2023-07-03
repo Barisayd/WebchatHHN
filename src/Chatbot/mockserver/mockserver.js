@@ -24,6 +24,7 @@ app.use(cors({
 app.post('/api/messages', async (req, res) => {
   // Get the message from the request body
   const message = req.body.userMessage;
+  const prePrompt = req.body.prePrompt;
 
   try {
     const apiBody = {
@@ -31,7 +32,8 @@ app.post('/api/messages', async (req, res) => {
       "messages": [
         {
           "role": "user",
-          "content": "Act like you are the Chatbot of the University of Heilbronn aka HHN and answer the following prompt and format the message with the respect to only use 100 tokens with the API call: " + message
+          //"content": "Act like you are the Chatbot of the University of Heilbronn aka HHN and answer the following prompt and format the message with the respect to only use 100 tokens with the API call: " + message
+          "content": prePrompt + " " + message
         }
       ],
       "max_tokens": 100,

@@ -1,20 +1,22 @@
 export class APIClient {
   constructor() {
-    //this.apiUrl = localStorage.getItem("serviceURL"); // URL of server
-    this.apiUrl = "http://localhost:5000/api/messages"
+    this.apiUrl = localStorage.getItem("serviceURL"); // URL of server
+    this.prePrompt = localStorage.getItem("customPrompt"); // custom Prompt before Usermessage
   }
   
   async sendMessage(message) {
 
     try {
+      // store http response in variable 
       const response = await fetch(this.apiUrl, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ "userMessage": message }) // Send message in the request body
+        body: JSON.stringify({ "userMessage": message, "prePrompt": this.prePrompt}) // Send message in the request body
       });
 
+      // is response is not 200 throw error
       if (!response.ok) {
         throw new Error(`Error: ${response.status} - ${response.statusText}`);
       }
