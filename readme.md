@@ -40,6 +40,7 @@ to run fastApi:
   * `npm install`
   * `pip install fastapi` (kann man glaub auch direkt ", pydantic" mit übergeben)
   * `pip install pydantic`
+  * `pip install uvicorn`
 * open a new terminal inside your IDE
   * enter `npm start`
 * open a new terminal inside your IDE
