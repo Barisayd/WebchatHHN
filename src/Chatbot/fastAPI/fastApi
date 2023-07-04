@@ -25,7 +25,7 @@ async def mock_api(request_data: RequestData):
 
     # Process the message and generate the appropriate response
     # User input is not processed yet but can be processes later in here
-    chatbot_message = "Response from the chatbot API"
+    chatbot_message = "The Wintersemester at HHN starts at 01. September 2023"
     return {"botMessage": chatbot_message}
 
 if __name__ == "__main__":
