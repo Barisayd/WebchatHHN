@@ -4,6 +4,7 @@
 - [Guide for scrivito example_app](#guide-for-scrivito-example_app)
   - [Disclaimer](#check-the-wikipage-installation-guide-to-setup-the-chatbot-with-scrivito-example_app-with-the-help-of-screenshots)
   - [Instructions for running the chatbot on scrivito](#instruction-for-running-the-chatbot-on-scrivito)
+- [Server / API Configuration](# Configuring the chatbot and a server or API for processing requests from the chatbot.)
 - [Readme from the used chatbot-kit (further documentation)](#readme-from-the-used-chatbot-kit)
 __________
 **Prerequisites:**
@@ -64,6 +65,44 @@ To test the server, you can send a GET request to the /api/messages route by vis
 * open a new terminal inside your IDE
   * enter `python fastApi`
 
+
+# Configuring the chatbot and a server or API for processing requests from the chatbot.
+
+To properly connect the chatbot client to a server and receive appropriate responses, the server must be configured accordingly. Here is the information required to send requests from the chatbot client to the server and receive the appropriate responses.
+
+### Chatbot-Client customization:
+
+Within the chatbot, in the client.js file, the variable "this.apiUrl" can be customized with the corresponding URL of the server. This should be done through the according Scrivito input field.
+
+Example:
+
+```
+this.apiUrl = 'http://localhost:5000/api/messages'; // URL of server
+```
+In addition, further key-value pairs can be specified in the "headers" attribute to provide bswp. authentication for the server.
+
+Example:
+
+```
+headers: {
+          'Key': 'Value'
+        },
+```
+#### Server customization:
+
+The server should listen for POST requests to the endpoint defined in the client and extract the contents of the request to generate an appropriate response. The requests have the following format:
+
+```
+{ "userMessage": userMessage }
+```
+The format of the body-response from the server to the chatbot client must be as follows:
+
+```
+{ "chatbotMessage": chatbotMessage }
+```
+The server may also include additional routes, database integrations, and other logic to support the specific use case of the chatbot.
+
+Please note that the server configuration and logic implementation are beyond the scope of this documentation. The server must be customized according to the specific requirements.
 
 # Readme from the used chatbot-kit
 
