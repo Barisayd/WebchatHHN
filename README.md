@@ -1,3 +1,10 @@
+# Description
+* This repository is a project contributed by 4 students of the Hochschule Heilbronn as part of a project study
+* The chatbot kit of fredrik roseberg was used to reuse UI ™https://github.com/FredrikOseberg/react-chatbot-kit
+* It contains a Webchat to provide students and applicants a web assistant to guide them. 
+* The Webchat is interconnectable to custom AI services or external services like GPT-3.5.
+* This Project uses the Scrivito Framework to integrate the Webchat as a Widget which can be dragged and dropped to any Content Management Site developed with Scrivito
+
 # Getting Started with GroupC-Chatbot
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
